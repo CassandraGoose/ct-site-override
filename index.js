@@ -57,7 +57,7 @@ function play() {
 
 function initialize() {
   body.style.background = 'black';
-  body.style.backgroundImage = `url(./gifs/static1.webp)`;
+  body.style.backgroundImage = `url(./gifs/static.png)`;
   body.style.backgroundSize = 'cover';
   play();
   setInterval(play, 5500);
