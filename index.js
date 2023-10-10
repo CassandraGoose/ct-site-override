@@ -27,6 +27,7 @@ const getGif = () => {
   
   const removeUsedGif = (type) => (currentGif) => {
     gifs[type] = recursivelyFilter(gif => gif !== currentGif)(gifs[type]);
+    console.log(gifs[type])
   }
 
   const getRandomIndex = (array) => {
@@ -40,7 +41,7 @@ const recursivelyFilter = (callback) => (array) => {
   if (array.length === 0) return [];
   const firstItem = array[0];
   const filteredFirst = callback(firstItem) ? [firstItem] : [];
-  return filteredFirst.concat(recursivelyFilter(callback, array.slice(1)));
+  return filteredFirst.concat(recursivelyFilter(callback)(array.slice(1)));
 }
 
 const body = document.querySelector('body');
