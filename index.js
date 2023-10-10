@@ -48,7 +48,6 @@ const body = document.querySelector('body');
 
 function changeBackground(type) {
   body.style.backgroundImage = `url(./gifs/${getGif()(type)}`;
-  body.style.backgroundSize = 'cover';
 }
 
 function play() {
@@ -57,6 +56,9 @@ function play() {
 }
 
 function initialize() {
+  body.style.background = 'black';
+  body.style.backgroundImage = `url(./gifs/static1.webp)`;
+  body.style.backgroundSize = 'cover';
   play();
   setInterval(play, 5500);
 }
