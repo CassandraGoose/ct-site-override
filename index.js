@@ -2,8 +2,8 @@
 // I'm not a functional programmer and haven't quite grasped how to make it reasonable / clean / organized. I'm sure there are better ways to do this.
 
 const getGif = () => {
-  const staringGifs = ['stare1.webp', 'stare2.webp', 'stare3.webp', 'stare4.webp', 'stare5.webp', 'stare6.webp', 'stare7.webp', 'stare8.webp', 'stare9.webp', 'stare10.webp'];
-  const staticGifs = ['static1.webp', 'static2.webp', 'static3.webp'];
+  const staringGifs = ['stare1.mp4', 'stare2.mp4', 'stare3.mp4', 'stare4.mp4', 'stare5.mp4', 'stare6.mp4', 'stare7.mp4', 'stare8.mp4', 'stare9.mp4', 'stare10.mp4'];
+  const staticGifs = ['static1.mp4', 'static2.mp4', 'static3.mp4', 'static4.mp4'];
 
   const gifs = {
     staring: staringGifs,
@@ -22,6 +22,7 @@ const getGif = () => {
     const currentGif = gifs[type][randomIndex];
   
     removeUsedGif(type)(currentGif);
+    console.log(currentGif)
     return currentGif;
   }
   
@@ -45,20 +46,18 @@ const recursivelyFilter = (callback) => (array) => {
 }
 
 const body = document.querySelector('body');
+const video = document.querySelector('video');
 
-function changeBackground(type) {
-  body.style.backgroundImage = `url(./gifs/${getGif()(type)}`;
+function changeVideo(type) {
+  video.setAttribute('src', `./gifs/${getGif()(type)}`);
 }
 
 function play() {
-  setTimeout(() => changeBackground('static'), 5000);
-  setTimeout(() => changeBackground('staring'), 500);
+  setTimeout(() => changeVideo('static'), 5000);
+  setTimeout(() => changeVideo('staring'), 500);
 }
 
 function initialize() {
-  body.style.background = 'black';
-  body.style.backgroundImage = `url(./gifs/static.png)`;
-  body.style.backgroundSize = 'cover';
   play();
   setInterval(play, 5500);
 }

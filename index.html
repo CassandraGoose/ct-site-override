@@ -5,8 +5,22 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="">
 <style>
+  body {
+    background: black;
+  }
+  video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 </style>
-<body>  
+<body>
+  <video playsinline autoplay muted loop poster="./gifs/static.png" id="bgvid">
+    <source src="./gifs/static1.mp4" type="video/webm">
+  </video>
   <script src="./index.js"></script>
 </body>
 </html>
